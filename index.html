@@ -34,11 +34,9 @@ body {
     top: 30px;
     left: 30px;
     right: 30px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     z-index: 10;
 }
 
@@ -54,16 +52,14 @@ body {
     color: #222;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero {
     height: 100vh;
     min-height: 550px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: relative;
 }
 
@@ -86,7 +82,6 @@ body {
     );
 
     background-size: 200% auto;
-
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -112,34 +107,28 @@ body {
 
 .coming {
     margin-top: 22px;
-
     font-size: 13px;
     letter-spacing: 6px;
-
     color: #222;
 }
 
 .footer {
     margin-top: 16px;
-
     font-size: 11px;
     letter-spacing: 3px;
-
     color: #999;
 }
 
-/* SCROLL INDICATOR */
+/* SCROLL */
 
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
     left: 50%;
-
     transform: translateX(-50%);
 
     font-size: 10px;
     letter-spacing: 4px;
-
     color: #999;
 
     animation: scrollMove 2s infinite;
@@ -155,18 +144,16 @@ body {
     }
 }
 
-/* ABOUT SECTION */
+/* ABOUT */
 
 .about {
     min-height: 75vh;
-
     padding: 100px 25px;
 
     border-top: 1px solid #eee;
 
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
 
@@ -176,40 +163,32 @@ body {
 .section-title {
     font-size: 25px;
     font-weight: 400;
-
     letter-spacing: 5px;
-
     margin-bottom: 25px;
 }
 
 .section-text {
     font-size: 13px;
-
     color: #888;
-
     letter-spacing: 1px;
     text-align: center;
-
     line-height: 2;
-
     max-width: 500px;
 }
 
-/* TELEGRAM BUTTON */
+/* TELEGRAM */
 
 .telegram {
     margin-top: 65px;
 
     display: flex;
     align-items: center;
-
     gap: 12px;
 
     text-decoration: none;
     color: #111;
 
     border: 1px solid #ddd;
-
     padding: 13px 25px;
 
     transition: 0.3s;
@@ -218,16 +197,13 @@ body {
 .telegram:hover {
     background: #000;
     color: #fff;
-
     border-color: #000;
-
     transform: translateY(-3px);
 }
 
 .telegram svg {
     width: 21px;
     height: 21px;
-
     fill: currentColor;
 }
 
@@ -236,73 +212,104 @@ body {
     letter-spacing: 3px;
 }
 
-/* SPIDERS */
+/* =================================
+   REALISTIC SPIDERS
+================================= */
 
 .spider {
     position: fixed;
+    width: 55px;
+    height: 55px;
 
     z-index: 20;
-
     pointer-events: none;
 
-    width: 22px;
-    height: 25px;
+    filter: drop-shadow(
+        3px 5px 3px rgba(0,0,0,.25)
+    );
 }
+
+.spider svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* LEGS */
+
+.spider .leg {
+    fill: none;
+    stroke: #111;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* LEFT LEGS */
+
+.spider .left-legs {
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation: legsLeft .32s ease-in-out infinite alternate;
+}
+
+/* RIGHT LEGS */
+
+.spider .right-legs {
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation: legsRight .32s ease-in-out infinite alternate;
+}
+
+@keyframes legsLeft {
+    from {
+        transform: rotate(-12deg);
+    }
+
+    to {
+        transform: rotate(12deg);
+    }
+}
+
+@keyframes legsRight {
+    from {
+        transform: rotate(12deg);
+    }
+
+    to {
+        transform: rotate(-12deg);
+    }
+}
+
+/* BODY */
 
 .spider .body {
-    position: absolute;
-
-    width: 9px;
-    height: 12px;
-
-    background: #111;
-
-    border-radius: 50%;
-
-    left: 7px;
-    top: 7px;
+    fill: #111;
 }
 
-.spider .head {
-    position: absolute;
-
-    width: 7px;
-    height: 7px;
-
-    background: #111;
-
-    border-radius: 50%;
-
-    left: 8px;
-    top: 1px;
+.spider .highlight {
+    fill: #555;
 }
 
-.spider .legs {
-    position: absolute;
-
-    top: 9px;
-    left: 0;
-
-    width: 22px;
-    height: 14px;
-
-    border-top: 1px solid #111;
-    border-bottom: 1px solid #111;
+.spider .eye {
+    fill: white;
 }
 
-/* FIRST SPIDER */
+/* WALKING SPIDER */
 
 .spider-one {
     top: 45%;
-    left: -30px;
+    left: -60px;
 
-    animation: crawl 24s linear infinite;
+    animation: spiderWalk 32s linear infinite;
 }
 
-@keyframes crawl {
+@keyframes spiderWalk {
 
     0% {
-        left: -30px;
+        left: -60px;
         top: 45%;
     }
 
@@ -312,12 +319,12 @@ body {
     }
 
     50% {
-        left: 70%;
-        top: 48%;
+        left: 60%;
+        top: 50%;
     }
 
     75% {
-        left: 90%;
+        left: 85%;
         top: 40%;
     }
 
@@ -327,14 +334,16 @@ body {
     }
 }
 
-/* SECOND SPIDER */
+/* HANGING SPIDER */
 
 .spider-two {
-    top: -35px;
-    right: 15%;
+    right: 12%;
+    top: 20px;
 
-    animation: hanging 8s ease-in-out infinite;
+    animation: spiderHang 7s ease-in-out infinite;
 }
+
+/* WEB */
 
 .spider-two::before {
     content: "";
@@ -342,22 +351,22 @@ body {
     position: absolute;
 
     width: 1px;
-    height: 40px;
+    height: 65px;
 
     background: #222;
 
-    left: 11px;
-    bottom: 20px;
+    left: 50%;
+    bottom: 48px;
 }
 
-@keyframes hanging {
+@keyframes spiderHang {
 
     0%, 100% {
-        top: -35px;
+        transform: translateY(-15px);
     }
 
     50% {
-        top: 90px;
+        transform: translateY(45px);
     }
 }
 
@@ -372,11 +381,10 @@ body {
 
     font-size: 10px;
     letter-spacing: 3px;
-
     color: #aaa;
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 
 @media(max-width: 600px) {
 
@@ -398,6 +406,22 @@ body {
         font-size: 12px;
     }
 
+    .spider {
+        transform: scale(.8);
+    }
+}
+
+/* REDUCE MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .spider,
+    .spider .left-legs,
+    .spider .right-legs,
+    .logo,
+    .scroll-indicator {
+        animation: none;
+    }
 }
 
 </style>
@@ -418,60 +442,104 @@ body {
 </header>
 
 
-<!-- SPIDERS -->
+<!-- FIRST SPIDER -->
 
 <div class="spider spider-one">
 
-    <div class="head"></div>
+<svg viewBox="0 0 60 60">
 
-    <div class="body"></div>
+    <g class="left-legs">
 
-    <div class="legs"></div>
+        <path class="leg" d="M25 24 L14 15 L5 19"/>
+        <path class="leg" d="M24 29 L11 27 L3 34"/>
+        <path class="leg" d="M25 34 L13 40 L7 49"/>
+        <path class="leg" d="M28 38 L20 49 L17 56"/>
+
+    </g>
+
+    <g class="right-legs">
+
+        <path class="leg" d="M35 24 L46 15 L55 19"/>
+        <path class="leg" d="M36 29 L49 27 L57 34"/>
+        <path class="leg" d="M35 34 L47 40 L53 49"/>
+        <path class="leg" d="M32 38 L40 49 L43 56"/>
+
+    </g>
+
+    <ellipse class="body" cx="30" cy="35" rx="11" ry="14"/>
+
+    <ellipse class="highlight" cx="27" cy="30" rx="3" ry="5"/>
+
+    <circle class="body" cx="30" cy="19" r="8"/>
+
+    <circle class="eye" cx="27" cy="17" r="1.5"/>
+    <circle class="eye" cx="33" cy="17" r="1.5"/>
+
+</svg>
 
 </div>
 
+
+<!-- SECOND SPIDER -->
 
 <div class="spider spider-two">
 
-    <div class="head"></div>
+<svg viewBox="0 0 60 60">
 
-    <div class="body"></div>
+    <g class="left-legs">
 
-    <div class="legs"></div>
+        <path class="leg" d="M25 24 L14 15 L5 19"/>
+        <path class="leg" d="M24 29 L11 27 L3 34"/>
+        <path class="leg" d="M25 34 L13 40 L7 49"/>
+        <path class="leg" d="M28 38 L20 49 L17 56"/>
+
+    </g>
+
+    <g class="right-legs">
+
+        <path class="leg" d="M35 24 L46 15 L55 19"/>
+        <path class="leg" d="M36 29 L49 27 L57 34"/>
+        <path class="leg" d="M35 34 L47 40 L53 49"/>
+        <path class="leg" d="M32 38 L40 49 L43 56"/>
+
+    </g>
+
+    <ellipse class="body" cx="30" cy="35" rx="11" ry="14"/>
+
+    <ellipse class="highlight" cx="27" cy="30" rx="3" ry="5"/>
+
+    <circle class="body" cx="30" cy="19" r="8"/>
+
+    <circle class="eye" cx="27" cy="17" r="1.5"/>
+    <circle class="eye" cx="33" cy="17" r="1.5"/>
+
+</svg>
 
 </div>
 
 
-<!-- MAIN PAGE -->
+<!-- MAIN SECTION -->
 
 <section class="hero">
 
     <div class="container">
 
         <div class="logo">
-
             A<span class="small">rs</span>X
-
         </div>
 
         <div class="coming">
-
             COMING SOON
-
         </div>
 
         <div class="footer">
-
             ™ &nbsp; 2026
-
         </div>
 
     </div>
 
     <div class="scroll-indicator">
-
         SCROLL DOWN ↓
-
     </div>
 
 </section>
@@ -482,9 +550,7 @@ body {
 <section class="about">
 
     <h2 class="section-title">
-
         ABOUT
-
     </h2>
 
     <p class="section-text">
@@ -501,11 +567,8 @@ body {
     <!-- TELEGRAM -->
 
     <a class="telegram"
-
        href="https://t.me/Ars_teamX"
-
        target="_blank"
-
        rel="noopener noreferrer">
 
         <svg viewBox="0 0 24 24">
